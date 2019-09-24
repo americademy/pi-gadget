@@ -1,2 +1,2 @@
-SPLASH="core_orange_140.png"
+SPLASH="codeverse_mark_color.png"
 FONT="$(ls /usr/share/fonts/truetype/*/Ubuntu-R.ttf)"
