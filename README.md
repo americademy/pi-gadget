@@ -43,3 +43,5 @@ the `splash` and the `vt.handoff=2` keywords from the default kernel commandline
 
 This gadget snap can only be cross built on an amd64 machine. To do so, just run `snapcraft`
 in the top level of the source tree after cloning it to a PC.
+
+We are building this automatically with Buildkite
