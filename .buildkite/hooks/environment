@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -euo pipefail
+
+git config --global credential.helper "store --file=/buildkite-secrets/git-credentials"
+ssh-add -k /buildkite-secrets/id_rsa_buildkite_git
+
+# You can export other secrets here too
+# export FOO=bar
