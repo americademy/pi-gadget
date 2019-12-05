@@ -1,0 +1,39 @@
+steps:
+  - block: ":package: Prepare Release"
+    branches: master
+    fields:
+      - text: "Release Notes"
+        key: "release-notes"
+        required: true
+      - select: "Release Type"
+        key: "release-type"
+        hint: "What kind of release is this?"
+        required: true
+        options:
+          - label: "Patch - Adds backwards-compatible bug fixes "
+            value: "patch"
+          - label: "Minor - Adds functionality in a backwards-compatible way "
+            value: "minor"
+          - label: "Major - Adds functionality in a breaking way"
+            value: "major"
+
+  - label: ":hammer_and_wrench: Make Release"
+    branches: master
+    command: .buildkite/release.sh
+    plugins:
+      - docker#v3.2.0:
+          image: "ubuntu:16.04"
+          always-pull: true
+          propagate-environment: true
+          mount-ssh-agent: true
+  - wait
+
+  - label: ":rocket: Deploy to Production"
+    command: chmod +x .buildkite/pull.sh && .buildkite/pull.sh && npm run deploy:prod && npm run notify:prod
+    branches: master
+    plugins:
+      - docker#v3.2.0:
+          image: "ubuntu:16.04"
+          always-pull: true
+          propagate-environment: true
+          mount-ssh-agent: true
