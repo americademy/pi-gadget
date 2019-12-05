@@ -1,3 +1,5 @@
+[![Build status](https://badge.buildkite.com/7f2d2b1d93a82ea0ff62c66a1c61ccce386737f171e3fb6586.svg)](https://buildkite.com/americademy-inc/pi-gadget)
+
 # Universal Raspberry Pi Gadget Snap
 
 This repository contains the source for an Ubuntu Core gadget snap that runs
