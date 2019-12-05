@@ -1,6 +1,6 @@
 steps:
   - block: ":package: Prepare Release"
-    branches: master
+    branches: 18-armhf
     fields:
       - text: "Release Notes"
         key: "release-notes"
@@ -18,7 +18,7 @@ steps:
             value: "major"
 
   - label: ":hammer_and_wrench: Make Release"
-    branches: master
+    branches: 18-armhf
     command: .buildkite/release.sh
     plugins:
       - docker#v3.2.0:
@@ -30,7 +30,7 @@ steps:
 
   - label: ":rocket: Deploy to Production"
     command: chmod +x .buildkite/pull.sh && .buildkite/pull.sh && npm run deploy:prod && npm run notify:prod
-    branches: master
+    branches: 18-armhf
     plugins:
       - docker#v3.2.0:
           image: "ubuntu:16.04"
