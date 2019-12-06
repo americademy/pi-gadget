@@ -22,7 +22,7 @@ steps:
     command: .buildkite/release.sh
     plugins:
       - docker#v3.2.0:
-          image: "ubuntu:16.04"
+          image: "ubuntu:18.04"
           always-pull: true
           propagate-environment: true
           mount-ssh-agent: true
@@ -33,7 +33,7 @@ steps:
     branches: 18-armhf
     plugins:
       - docker#v3.2.0:
-          image: "ubuntu:16.04"
+          image: "ubuntu:18.04"
           always-pull: true
           propagate-environment: true
           mount-ssh-agent: true
