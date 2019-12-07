@@ -48,7 +48,7 @@ git add .version
 git add CHANGELOG.md
 git commit -m "Updated build v$VERSION" -m "Release v$VERSION" -m "$RELEASE_NOTES" -m "[skip ci]"
 # the [skip ci] will prevent another master build based on this commit
-git tag -a $VERSION
+git tag -a $VERSION -m "Release v$VERSION"
 
 echo "Pushing new version to 18-armhf"
 git push origin 18-armhf && git push --tags
