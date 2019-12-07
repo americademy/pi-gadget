@@ -13,7 +13,6 @@ git config --global user.email engineering@americademy.com
 echo "Current Commit:"
 git --no-pager log -1
 
-echo "Grabbing release info"
 RELEASE_NOTES=$(buildkite-agent meta-data get "release-notes")
 RELEASE_TYPE=$(buildkite-agent meta-data get "release-type")
 echo "Release notes: $RELEASE_NOTES"
