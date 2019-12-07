@@ -3,14 +3,14 @@
 set -eu
 
 echo "Installing dependencies"
-apt-get -qq update
-apt-get -qq install git ubuntu-image snapcraft -y
+apt-get update -qq 
+apt-get install -qq -y git ubuntu-image snapcraft
 
 echo "Configure git for Buildkite"
 git config --global user.name machine-americademy
 git config --global user.email engineering@americademy.com
 
-echo "Pulling latest from master branch"
+echo "Pulling latest master"
 git reset --hard origin/master
 git checkout master
 git pull origin master
