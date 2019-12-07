@@ -10,14 +10,19 @@ echo "Configure git for Buildkite"
 git config --global user.name machine-americademy
 git config --global user.email engineering@americademy.com
 
+ls -lah ~/
+touch ~/hi_there
+echo "Here now?"
+ls -lah ~/
+
+echo "Releasing version:"
 git --no-pager log -1
 
-echo "Pulling latest master"
-git reset --hard HEAD
-git checkout master
-git pull origin master
+# echo "Pulling latest master"
+# git reset --hard HEAD
+# git checkout master
+# git pull origin master
 
-git --no-pager log -1
 
 echo "Grabbing release info"
 RELEASE_NOTES=$(buildkite-agent meta-data get "release-notes")
