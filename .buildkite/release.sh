@@ -42,6 +42,9 @@ snapcraft
 mv codeverse-pi_18-1_armhf.snap build/codeverse-pi_18-1_armhf.snap
 
 # commit + tag + push
+git status
+git diff
+
 echo "Tagging and commiting v$VERSION"
 git add build/codeverse-pi_18-1_armhf.snap
 git add .version
