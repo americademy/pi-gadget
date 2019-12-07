@@ -26,14 +26,7 @@ steps:
           always-pull: true
           propagate-environment: true
           mount-ssh-agent: true
-  - wait
-
-  - label: ":rocket: Deploy to Production"
-    command: chmod +x .buildkite/pull.sh && .buildkite/pull.sh && npm run deploy:prod && npm run notify:prod
-    branches: master
-    plugins:
-      - docker#v3.2.0:
-          image: "ubuntu:18.04"
-          always-pull: true
-          propagate-environment: true
-          mount-ssh-agent: true
+          environment:
+            - DEBIAN_FRONTEND=noninteractive
+            - AWS_ACCESS_KEY_ID
+            - AWS_SECRET_ACCESS_KEY
