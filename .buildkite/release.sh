@@ -39,13 +39,14 @@ mv $TMP_FILE CHANGELOG.md
 
 # building image
 snapcraft
+mv codeverse-pi_18-1_armhf.snap dist/codeverse-pi_18-1_armhf.snap
 
 # commit + tag + push
 echo "Tagging and commiting v$VERSION"
-git add codeverse-pi_18-1_armhf.snap
+git add dist/codeverse-pi_18-1_armhf.snap
 git add .version
 git add CHANGELOG.md
-git commit -m "Release v$VERSION" -m "$RELEASE_NOTES" -m "[skip ci]"
+git commit -m "Updated build v$VERSION" -m "Release v$VERSION" -m "$RELEASE_NOTES" -m "[skip ci]"
 # the [skip ci] will prevent another master build based on this commit
 git tag -a $VERSION
 
