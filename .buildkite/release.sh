@@ -10,11 +10,6 @@ echo "Configure git for Buildkite"
 git config --global user.name machine-americademy
 git config --global user.email engineering@americademy.com
 
-ls -lah ~/
-touch ~/hi_there
-echo "Here now?"
-ls -lah ~/
-
 echo "Current Commit:"
 git --no-pager log -1
 
