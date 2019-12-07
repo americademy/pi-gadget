@@ -15,14 +15,8 @@ touch ~/hi_there
 echo "Here now?"
 ls -lah ~/
 
-echo "Releasing version:"
+echo "Current Commit:"
 git --no-pager log -1
-
-# echo "Pulling latest master"
-# git reset --hard HEAD
-# git checkout master
-# git pull origin master
-
 
 echo "Grabbing release info"
 RELEASE_NOTES=$(buildkite-agent meta-data get "release-notes")
@@ -46,7 +40,7 @@ echo "" >> $TMP_FILE
 cat CHANGELOG.md >> $TMP_FILE
 mv $TMP_FILE CHANGELOG.md
 
-# building image
+echo "Building gadget snap"
 snapcraft
 mv codeverse-pi_18-1_armhf.snap build/codeverse-pi_18-1_armhf.snap
 
