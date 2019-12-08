@@ -10,8 +10,22 @@ echo "Configure git for Buildkite"
 git config --global user.name machine-americademy
 git config --global user.email engineering@americademy.com
 
-echo "Current Commit:"
+REQUESTED_GIT_REV=`git rev-parse HEAD`
+echo "Requested Commit $GIT_REV:"
 git --no-pager log -1
+
+git pull origin master
+git checkout master
+GIT_REV=`git rev-parse HEAD`
+echo "Current Commit $GIT_REV:"
+git --no-pager log -1
+
+if [ "$REQUESTED_GIT_REV" == "$GIT_REV" ]; then
+    echo "Provided git revision is the current commit"
+else
+    echo "Requested commit is before the repositories current commit. This build is out of date"
+    exit 1
+fi
 
 RELEASE_NOTES=$(buildkite-agent meta-data get "release-notes")
 RELEASE_TYPE=$(buildkite-agent meta-data get "release-type")
