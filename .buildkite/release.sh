@@ -11,7 +11,7 @@ git config --global user.name machine-americademy
 git config --global user.email engineering@americademy.com
 
 REQUESTED_GIT_REV=`git rev-parse HEAD`
-echo "Requested Commit $GIT_REV:"
+echo "Requested Commit $REQUESTED_GIT_REV:"
 git --no-pager log -1
 
 git pull origin master
