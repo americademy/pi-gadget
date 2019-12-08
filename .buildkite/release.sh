@@ -14,8 +14,9 @@ REQUESTED_GIT_REV=`git rev-parse HEAD`
 echo "Requested Commit $REQUESTED_GIT_REV:"
 git --no-pager log -1
 
-git pull origin master
+git fetch origin
 git checkout master
+git reset --hard origin/master
 GIT_REV=`git rev-parse HEAD`
 echo "Current Commit $GIT_REV:"
 git --no-pager log -1
